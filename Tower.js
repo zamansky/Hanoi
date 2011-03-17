@@ -1,4 +1,4 @@
-function Tower(x,y,height,width,canvas) {
+function Tower(x,y,width,height,canvas) {
     this.canvas=canvas;
     this.gc = canvas.getContext("2d");
     this.x = x;
@@ -10,8 +10,12 @@ function Tower(x,y,height,width,canvas) {
 
 Tower.prototype.draw = function()  {
     this.gc.fillStyle="rgb(255,0,0)";
-    this.gc.fillRect(this.x,this.y+this.canvas.height-30,100,10);
+    this.gc.fillRect(this.x-this.width/2,this.y,this.width,10);
     this.gc.strokeStyle="rgb(0,0,0)";
-    this.gc.strokeRect(this.x,this.y+this.canvas.height-30,100,10);
-    console.log(this.canvas.height);
+    this.gc.strokeRect(this.x-this.width/2,this.y,this.width,10);
+    console.log(this.x,this.y,this.width);
+    /* beginPath
+       moveto (from bottom of center post)
+       lineto to complete figure
+    */       
 }
