@@ -24,3 +24,7 @@ Disk.prototype.draw = function () {
     this.gc.strokeStyle="rgb(0,0,0)";
     this.gc.strokeRect(this.x-this.width/2,this.y-this.height/2,this.width,this.height);
 }
+
+
+
+/* Move code */
