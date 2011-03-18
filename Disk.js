@@ -28,3 +28,9 @@ Disk.prototype.draw = function () {
 
 
 /* Move code */
+/*
+ * make a move class to hold specifications for steps
+ * and then use in state machine code
+ * 
+ * 
+ */
