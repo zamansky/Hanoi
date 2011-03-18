@@ -5,8 +5,29 @@ function Tower(canvas,x,y,width,height) {
     this.y = y;
     this.height=height;
     this.width=width;
-    this.discs = new Array();
+    this.disks = new Array();
 }
+
+Tower.prototype.addDisk = function(newdisk) {
+    // add a disk if you can
+    if (this.disks.length==0)
+    { 
+	newdisk.y=this.y-newdisk.height/2;
+	newdisk.x=this.x;
+	this.disks.push(newdisk);
+	return;
+    }
+    
+    var topdisk=this.disks[this.disks.length-1];
+    console.log(topdisk.size+" "+newdisk.size);
+    if (topdisk.size<newdisk.size)
+	return;
+    newdisk.y=topdisk.y-newdisk.height;
+    newdisk.x=this.x;
+    
+    this.disks.push(newdisk);
+}
+
 
 Tower.prototype.draw = function()  {
     this.gc.fillStyle="rgb(184,138,0)";
@@ -19,6 +40,10 @@ Tower.prototype.draw = function()  {
 
     this.gc.fillRect(this.x-5,this.y,10,-this.height*.6);
 
+
+    for (d in this.disks) {
+	this.disks[d].draw();
+}
 
     /* beginPath
        moveto (from bottom of center post)

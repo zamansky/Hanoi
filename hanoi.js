@@ -21,17 +21,16 @@ for (var i=0;i<numTowers;i++) {
 			  tWidth,tHeight));
     
 }
-
+Towers[0].addDisk(new Disk(canvas,50,50,150,1,1));
+Towers[0].addDisk(new Disk(canvas,50,50,50,1,1));
+Towers[0].addDisk(new Disk(canvas,50,50,25,1,2));
 
 for (t in Towers){
     Towers[t].draw();
     console.log(Towers[t]);
 }
 
-var d = new Disk(canvas,50,50,50,1,1);
-var d2 = new Disk(canvas,250,50,100,1,2);
-d.draw();
-d2.draw();
+
 }
 
 

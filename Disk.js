@@ -9,9 +9,9 @@ function Disk(canvas,x,y,size,number,colors){
     this.number=number;
     this.colors=colors;
     this.tColor=("rgb(255,0,0)");
-    this.bColor=("rgb(0,0,255)");
+    this.bColor=("rgb(255,0,0)");
     if (this.colors==2)
-	this.bColor=("rgb(255,0,0)");
+	this.bColor=("rgb(0,0,255)");
 
     this.orientation=1;
 }
@@ -23,5 +23,4 @@ Disk.prototype.draw = function () {
     this.gc.fillRect(this.x-this.width/2,this.y,this.width,this.height/2);
     this.gc.strokeStyle="rgb(0,0,0)";
     this.gc.strokeRect(this.x-this.width/2,this.y-this.height/2,this.width,this.height);
-
 }
