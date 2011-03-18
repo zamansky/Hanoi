@@ -17,9 +17,8 @@ for (var i=0;i<numTowers;i++) {
     var tHeight    = (height-40)*.8;
 
     /* Make the tower */
-    Towers.push(new Tower(tCenterX,tCenterY,
-			  tWidth,tHeight,
-			  canvas));
+    Towers.push(new Tower(canvas,tCenterX,tCenterY,
+			  tWidth,tHeight));
     
 }
 
@@ -28,6 +27,11 @@ for (t in Towers){
     Towers[t].draw();
     console.log(Towers[t]);
 }
+
+var d = new Disk(canvas,50,50,50,1,1);
+var d2 = new Disk(canvas,250,50,100,1,2);
+d.draw();
+d2.draw();
 }
 
 
