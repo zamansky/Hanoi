@@ -34,12 +34,22 @@ moveList = new Array();
 moveList.push(new Move(0,1));
 moveList.push(new Move(0,2));
 moveList.push(new Move(1,2));
-/*
 moveList.push(new Move(0,1));
 moveList.push(new Move(2,0));
 moveList.push(new Move(2,1));
 moveList.push(new Move(0,1));
-*/
+
+moveList.push(new Move(1,0));
+moveList.push(new Move(1,2));
+moveList.push(new Move(0,2));
+moveList.push(new Move(1,0));
+moveList.push(new Move(2,1));
+moveList.push(new Move(2,0));
+moveList.push(new Move(1,0));
+
+
+
+
 moveListIntervalID=setInterval(playMoves,1,canvas,Towers);
 
 

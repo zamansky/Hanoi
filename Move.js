@@ -148,7 +148,7 @@ function animDone(dst,d){
 	    var tmp=d.tColor;
 	    d.tColor=d.bColor;
 	    d.bColor=tmp;
-}
+	}
 	dst.addDisk(d);
 	dst.draw();
 	clearInterval(intervalID2);
