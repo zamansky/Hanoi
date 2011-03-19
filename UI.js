@@ -11,6 +11,11 @@ function playSingleMove(e) {
 	moveList = new Array();
 	var instruction = text.split(' ');
 	moveList.push(new Move(instruction[0],instruction[2]));
+	/* Add the move to the textarea */
+	var text=$("#moves").val();
+	text = text+instruction[0]+" to "+instruction[2]+"\n";
+	$("#moves").val(text);
+
 	moveListIntervalID=setInterval(playMoves,1,canvas,Towers);
 	$("#singlemove").val("")
     }
@@ -117,6 +122,7 @@ function canvasClick(e) {
 	    moveList = new Array();
 	    moveList.push(new Move(firstClick,inTower));
 	    
+	    /* Add the move to the textarea */
 	    var text=$("#moves").val();
 	    text = text+firstClick+" to "+inTower+"\n";
 	    $("#moves").val(text);
