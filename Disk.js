@@ -16,6 +16,11 @@ function Disk(canvas,x,y,size,number,colors){
     this.orientation=1;
 }
 
+
+Disk.prototype.erase = function () {
+    this.gc.clearRect(this.x-this.width/2,this.y-this.height,this.width,this.height);
+}
+
 Disk.prototype.draw = function () {
     this.gc.fillStyle=this.tColor;
     this.gc.fillRect(this.x-this.width/2,this.y-this.height/2,this.width,this.height/2);
