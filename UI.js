@@ -44,8 +44,10 @@ function resetTowers() {
 function resetAll() {
     var c = $("#colors").find('option:selected').text();
     var d = $("#disks").find('option:selected').text();
+    var t = $("#towers").find('option:selected').text();
     numColors=c;
     numDisks=d;
+    numTowers = t;
     resetTowers();
 }
 

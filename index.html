@@ -14,6 +14,15 @@
 <textarea rows="12" cols="20" id="moves" name="moves"></textarea>
 Type in moves in the form <b>src to dst</b> where src and dst are tower numbers (tower 0 is the left most tower).<br>
 
+Towers:
+<select id="towers">
+<option selected=true>3</option>
+<option>4</option>
+<option>5</option>
+<option>6</option>
+</select>
+
+
 Disks:
 <select id="disks">
 <option>1</option>
@@ -30,6 +39,7 @@ Colors:
 <option selected=true>1</option>
 <option >2</option>
 </select>
+
 <button id="resettext">Reset Moves</button>
 <button id="resetplay">Reset Towers</button>
 <button id="reinitialize">Re-Initialize</button>
