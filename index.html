@@ -4,13 +4,38 @@
 <script type="text/javascript" src="Move.js"></script>
 <script type="text/javascript" src="Disk.js"></script>
 <script type="text/javascript" src="Tower.js"></script>
+<script type="text/javascript" src="UI.js"></script>
 <script type="text/javascript" src="hanoi.js"></script>
 <div id="HELLO">
       <canvas width=800 height=400 id="canvas">
       </canvas>
-      
 </div>
+<div id="UI">
+<textarea rows="12" cols="20" id="moves" name="moves"></textarea>
+Type in moves in the form <b>src to dst</b> where src and dst are tower numbers (tower 0 is the left most tower).<br>
 
+Disks:
+<select id="disks">
+<option>1</option>
+<option>2</option>
+<option selected=true>3</option>
+<option>4</option>
+<option>5</option>
+<option>6</option>
+<option>7</option>
+<option>8</option>
+<select>
+Colors:
+<select id="colors">
+<option selected=true>1</option>
+<option >2</option>
+</select>
+<button id="resettext">Reset Moves</button>
+<button id="resetplay">Reset Towers</button>
+<button id="reinitialize">Re-Initialize</button>
+<button id="play">Play Moves</button>
+
+</div>
 
 </html>
  
