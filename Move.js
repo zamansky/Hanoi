@@ -1,6 +1,12 @@
 
 
-function Move(dx,qx,dy,qy,dr,qr) {
+function Move(s,d){
+    this.src=s;
+    this.dst=d;
+}
+
+
+function animStep(dx,qx,dy,qy,dr,qr) {
 this.dx = dx;
 this.qx = qx;
 this.dy = dy;
@@ -9,9 +15,34 @@ this.dr = dr;
 this.qr = qr;
 }
 
-var intervalID;
-var intervalID2;
+
+
+
+
+var intervalID=false;;
+var intervalID2=false;
+var movelistIntervalID;
 var isDone=true;
+var moveList;
+
+function playMoves(canvas,Towers)
+{
+    if (intervalID2)
+	return;
+
+    if (moveList.length==0)
+	{
+	    clearInterval(moveListIntervalID);
+	}
+
+    var m = moveList.shift();
+    if (!m)
+	return;
+    makeMove(canvas,Towers,m.src,m.dst);
+
+    
+
+}
 
 function anim(canvas,moves,Towers,d) {
     var gc = canvas.getContext("2d");
@@ -91,16 +122,16 @@ dx = -1; horDist = horDist * -1;
 
 
 
-moves.push(new Move(0,0,-1,virtDist1,0,0));
-moves.push(new Move(dx,horDist,0,0,0,0));
+moves.push(new animStep(0,0,-1,virtDist1,0,0));
+moves.push(new animStep(dx,horDist,0,0,0,0));
 if (d.colors==2)
 {
-moves.push(new Move(0,0,0,0,3.14/49,49));
-moves.push(new Move(0,0,-1,virtDist2,0,0));    
+moves.push(new animStep(0,0,0,0,3.14/49,49));
+moves.push(new animStep(0,0,-1,virtDist2,0,0));    
 }
 else
 {
-moves.push(new Move(0,0,1,virtDist2,0,0));    
+moves.push(new animStep(0,0,1,virtDist2,0,0));    
 }
 
 intervalID = setInterval(anim,1,canvas,moves,Towers,d);
@@ -112,8 +143,12 @@ function animDone(dst,d){
     console.log(intervalID);
     if (!intervalID)
     {
-	console.log("DST:"+dst);
-	console.log("d:"+d);
+	if (d.colors==2)
+	{
+	    var tmp=d.tColor;
+	    d.tColor=d.bColor;
+	    d.bColor=tmp;
+}
 	dst.addDisk(d);
 	dst.draw();
 	clearInterval(intervalID2);

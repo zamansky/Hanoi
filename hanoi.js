@@ -30,25 +30,17 @@ for (t in Towers){
     console.log(Towers[t]);
 }
 
+moveList = new Array();
+moveList.push(new Move(0,1));
+moveList.push(new Move(0,2));
+moveList.push(new Move(1,2));
 /*
-var moves = new Array();
-moves.push(new Move(0,0,-1,50,0,0));
-moves.push(new Move(1,100,0,0,0,0,100));
-moves.push(new Move(0,0,0,0,3.14/50,49));
-moves.push(new Move(0,0,-1,50,0,0));
-moves.push(new Move(-1,200,0,0,0,0));
-moves.push(new Move(0,0,-1,50,0,0));
-moves.push(new Move(0,0,0,0,-3.14/50,49));
-var d = new Disk(canvas,50,300,50,1,2);
-d.draw();
-
-    intervalID=setInterval(anim,1,canvas,moves,Towers,d);
+moveList.push(new Move(0,1));
+moveList.push(new Move(2,0));
+moveList.push(new Move(2,1));
+moveList.push(new Move(0,1));
 */
-/*
-makeMove(canvas,Towers,0,1);
-    makeMove(canvas,Towers,0,2);
-    makeMove(canvas,Towers,1,2);
-*/
+moveListIntervalID=setInterval(playMoves,1,canvas,Towers);
 
 
 }
