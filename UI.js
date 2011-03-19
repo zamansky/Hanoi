@@ -1,5 +1,22 @@
 /*------------------------- UI --------------------------*/
 
+/*------------------------- playSingleMove --------------------------*/
+/*
+ * 
+ */
+function playSingleMove(e) {
+    var k = e.keyCode;
+    if (k==13){
+	var text = $("#singlemove").val();
+	moveList = new Array();
+	var instruction = text.split(' ');
+	moveList.push(new Move(instruction[0],instruction[2]));
+	moveListIntervalID=setInterval(playMoves,1,canvas,Towers);
+	$("#singlemove").val("")
+    }
+}
+
+
 
 /*------------------------- playMovesFromEntry --------------------------*/
 /*
@@ -60,4 +77,5 @@ function bindButtons() {
     $('#resettext').bind('click',resetEntry);
     $('#resetplay').bind('click',resetTowers);
     $('#reinitialize').bind('click',resetAll);
+    $('#singlemove').bind('keyup',playSingleMove);
 }
