@@ -8,6 +8,19 @@ function Tower(canvas,x,y,width,height) {
     this.disks = new Array();
 }
 
+Tower.prototype.canAdd = function(newdisk) {
+    return this.disks.length==0 ||
+	this.disks[this.disks.length-1].size<newdisk.size;
+}
+
+Tower.prototype.removeDisk = function() {
+    if (this.disks.length==0){
+	return none;
+    }    
+    
+    return this.disks.pop();
+}
+
 Tower.prototype.addDisk = function(newdisk) {
     // add a disk if you can
     if (this.disks.length==0)

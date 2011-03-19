@@ -34,3 +34,15 @@ Disk.prototype.draw = function () {
  * 
  * 
  */
+
+
+function Move(dx,qx,dy,qy,dr,qr) {
+this.dx = dx;
+this.qx = qx;
+this.dy = dy;
+this.qy = qy;
+this.dr = dr;
+this.qr = qr;
+}
+
+
