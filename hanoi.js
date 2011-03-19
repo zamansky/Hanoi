@@ -23,7 +23,7 @@ for (var i=0;i<numTowers;i++) {
 }
 
 for (var i=3;i>0;i--)
-    Towers[0].addDisk(new Disk(canvas,0,0,i*25+25,1,2));
+    Towers[0].addDisk(new Disk(canvas,0,0,i*25+25,1,1));
     
 for (t in Towers){
     Towers[t].draw(canvas.getContext("2d"));
