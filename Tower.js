@@ -16,6 +16,9 @@ function Tower(canvas,x,y,width,height) {
     this.height=height;
     this.width=width;
     this.disks = new Array();
+    this.unclickedColor = "rgb(184,138,0)";
+    this.clickedColor = "rgb(0,255,0)";
+    this.clicked=false;
 }
 
 /*------------------------- canAdd --------------------------*/
@@ -82,9 +85,13 @@ Tower.prototype.addDisk = function(newdisk) {
  * Draw the Tower (and call draw for all disks) 
  */
 Tower.prototype.draw = function()  {
-    this.gc.fillStyle="rgb(184,138,0)";
+    if (!this.clicked)
+	this.gc.fillStyle=this.unclickedColor;
+    else
+	this.gc.fillStyle=this.clickedColor;
     this.gc.fillRect(this.x-this.width/2,this.y,this.width,10);
 
+    this.gc.fillStyle=this.unclickedColor;
     this.gc.fillRect(this.x-5,this.y,10,-this.height*.6);
     for (d in this.disks) {
 	this.disks[d].draw();

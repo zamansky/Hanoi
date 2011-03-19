@@ -68,6 +68,66 @@ function resetAll() {
     resetTowers();
 }
 
+
+/*-------------------------  --------------------------*/
+// For tracking first and second mouse clicks for movement
+var firstClick=false;
+
+/*------------------------- canvasClick --------------------------*/
+/*
+ * First click -- highlight clicked base
+ * second click - reset colors, move disk
+ * second click on same tower -- reset colors
+ * second click on illegal tower - reset colors
+ */
+function canvasClick(e) {
+    var x,y;
+
+    x = e.layerX;
+    y = e.layerY;
+    var inTower = false;
+    for (t in Towers) {
+	var tower = Towers[t];
+	if (x>tower.x-tower.width/2 &&
+	    x<tower.x+tower.width/2) {
+	    inTower = t;
+	    break;
+	}
+    }
+
+    if (inTower){
+	if (!firstClick) {
+	    if (Towers[inTower].disks.length > 0){
+		firstClick=inTower;
+		Towers[inTower].clicked=true;
+	    }
+	    Towers[inTower].draw();
+	}
+	else
+	{
+	    for (t in Towers){
+		Towers[t].clicked=false;
+		Towers[t].draw();
+	    }
+	    if (inTower == firstClick){
+		inTower=false;
+		firstClick=false;
+		return;
+	    }
+	    moveList = new Array();
+	    moveList.push(new Move(firstClick,inTower));
+	    
+	    var text=$("#moves").val();
+	    text = text+firstClick+" to "+inTower+"\n";
+	    $("#moves").val(text);
+	    
+	    firstClick=false;
+	    moveListIntervalID=setInterval(playMoves,1,canvas,Towers);
+	    
+	}
+    }
+    
+}
 /*------------------------- bindButtons --------------------------*/
 /*
  * Bind buttons to events
@@ -78,4 +138,6 @@ function bindButtons() {
     $('#resetplay').bind('click',resetTowers);
     $('#reinitialize').bind('click',resetAll);
     $('#singlemove').bind('keyup',playSingleMove);
+
+    $("#canvas").bind('click',canvasClick);
 }
