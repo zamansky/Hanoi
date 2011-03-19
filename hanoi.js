@@ -27,7 +27,6 @@ for (var i=3;i>0;i--)
     
 for (t in Towers){
     Towers[t].draw(canvas.getContext("2d"));
-    console.log(Towers[t]);
 }
 
 moveList = new Array();

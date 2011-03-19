@@ -189,7 +189,6 @@ function makeMove(canvas,Towers,srcIndex,destIndex) {
  * When it is, add d to the dst tower 
  */
 function animDone(dst,d){
-    console.log(intervalID);
     if (!intervalID){
 	if (d.colors==2){
 	    var tmp=d.tColor;

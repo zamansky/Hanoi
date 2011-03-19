@@ -11,7 +11,6 @@ function Tower(canvas,x,y,width,height) {
 Tower.prototype.canAdd = function(newdisk) {
     var ret=this.disks.length==0 ||
 	this.disks[this.disks.length-1].size>newdisk.size;
-    console.log(ret);
     return ret;
 }
 
@@ -41,7 +40,6 @@ Tower.prototype.addDisk = function(newdisk) {
     }
     
     var topdisk=this.disks[this.disks.length-1];
-    console.log(topdisk.size+" "+newdisk.size);
     if (topdisk.size<newdisk.size)
 	return;
     newdisk.y=topdisk.y-newdisk.height;
