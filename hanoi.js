@@ -1,5 +1,6 @@
 
 
+var Towers = new Array();
 
 function start() {
 
@@ -7,7 +8,6 @@ var canvas = document.getElementById("canvas");
 var numTowers = 3;
 var height = 400;
 var width = 800;
-var Towers = new Array();
 
 for (var i=0;i<numTowers;i++) {
     var tBlockWidth= width/numTowers;
@@ -30,7 +30,7 @@ for (t in Towers){
     console.log(Towers[t]);
 }
 
-
+/*
 var moves = new Array();
 moves.push(new Move(0,0,-1,50,0,0));
 moves.push(new Move(1,100,0,0,0,0,100));
@@ -38,52 +38,17 @@ moves.push(new Move(0,0,0,0,3.14/50,49));
 moves.push(new Move(0,0,-1,50,0,0));
 moves.push(new Move(-1,200,0,0,0,0));
 moves.push(new Move(0,0,-1,50,0,0));
-moves.push(new Move(0,0,0,0,3.14/50,49));
+moves.push(new Move(0,0,0,0,-3.14/50,49));
 var d = new Disk(canvas,50,300,50,1,2);
 d.draw();
 
     intervalID=setInterval(anim,1,canvas,moves,Towers,d);
-
-}
-
-var intervalID;
-
-function anim(canvas,moves,Towers,d) {
-    var gc = canvas.getContext("2d");
-//gc.globalCompositeOperation = "xor";
-    if (moves.length==0)
-	{
-	    clearInterval(intervalID);
-	    return;
-	}
-    var m = moves[0];
-
-// see if we have to change states
-    if (m.qx==0 && m.qy==0 && m.qr==0)
-	{
-	    moves.shift();
-	}
-    else
-    {
-	gc.clearRect(0,0,800,400);
-    gc.save();
-    gc.setTransform(1,0,0,1,0,0);
-	for (t in Towers)
-	    Towers[t].draw();
-    gc.restore();}
-canvas.clear=true;
-	// do the animation
-    gc.translate(d.x,d.y);
-	gc.rotate(m.dr);
-	gc.translate(-d.x,-d.y);
-	gc.translate(m.dx,m.dy);
-	m.qx=m.qx?m.qx-1:0;
-	m.qy=m.qy?m.qy-1:0;
-	m.qr=m.qr?m.qr-1:0;
-	d.draw();
-
-
-
+*/
+/*
+makeMove(canvas,Towers,0,1);
+    makeMove(canvas,Towers,0,2);
+    makeMove(canvas,Towers,1,2);
+*/
 
 
 }

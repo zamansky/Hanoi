@@ -17,9 +17,6 @@ function Disk(canvas,x,y,size,number,colors){
 }
 
 
-Disk.prototype.erase = function () {
-    this.gc.clearRect(this.x-this.width/2,this.y-this.height,this.width,this.height);
-}
 
 Disk.prototype.draw = function () {
     this.gc.fillStyle=this.tColor;
@@ -30,24 +27,5 @@ Disk.prototype.draw = function () {
     this.gc.strokeRect(this.x-this.width/2,this.y-this.height/2,this.width,this.height);
 }
 
-
-
-/* Move code */
-/*
- * make a move class to hold specifications for steps
- * and then use in state machine code
- * 
- * 
- */
-
-
-function Move(dx,qx,dy,qy,dr,qr) {
-this.dx = dx;
-this.qx = qx;
-this.dy = dy;
-this.qy = qy;
-this.dr = dr;
-this.qr = qr;
-}
 
 

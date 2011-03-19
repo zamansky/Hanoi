@@ -9,13 +9,22 @@ function Tower(canvas,x,y,width,height) {
 }
 
 Tower.prototype.canAdd = function(newdisk) {
-    return this.disks.length==0 ||
-	this.disks[this.disks.length-1].size<newdisk.size;
+    var ret=this.disks.length==0 ||
+	this.disks[this.disks.length-1].size>newdisk.size;
+    console.log(ret);
+    return ret;
+}
+
+Tower.prototype.peek = function() {
+    if (this.disks.length==0)
+	return false
+
+    return this.disks[this.disks.length-1];
 }
 
 Tower.prototype.removeDisk = function() {
     if (this.disks.length==0){
-	return none;
+	return false;
     }    
     
     return this.disks.pop();
