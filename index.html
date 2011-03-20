@@ -1,5 +1,7 @@
 
 <html>
+
+<link rel="stylesheet" type="text/css" href="hanoi.css" />
 <script type="text/javascript" src="jquery-1.5.1.min.js"></script>
 <script type="text/javascript" src="Move.js"></script>
 <script type="text/javascript" src="Disk.js"></script>
@@ -7,57 +9,86 @@
 <script type="text/javascript" src="UI.js"></script>
 <script type="text/javascript" src="Solver.js"></script>
 <script type="text/javascript" src="hanoi.js"></script>
-<div id="HELLO">
+    <div id="top">
 
-Click source tower, then destination tower to move via mouse.
-Move will be recorded in text are for replaying.
+      <h1>Towers of Hanoi</h1>
+      
+      Click source tower, then destination tower to move via mouse.
+      Move will be recorded in text are for replaying.
+      <br>
+	You can also type into the list of moves and play them using the "Play Moves" button.
+<br>
+Typing a move into the "One move" box will perform the move and append the move to the Move List.
+<br>
+Reset moves clears the Move List.
+<br>
+Reset Towers moves all the disks back to the first tower.
+<br>
+Re-initialize resets the demo (use to change the number of disk, towers, and colors).
+<br>
+Solve generates the moves needed to move from tower 0 (the left most), to tower 1 (the one next to it) and puts them in the Move List. You can then play them with "Play moves."
 
-      <canvas width=800 height=400 id="canvas">
+
+      <canvas width=800 height=300 id="canvas">
       </canvas>
-</div>
-<div id="UI">
-<div>
-Move list:
-<textarea rows="12" cols="20" id="moves" name="moves"></textarea>
-</div>
-One Move:
-<input type="text rows="1" cols="20" id="singlemove" name="singlelmove"></input>
-</br>
-Type in moves in the form <b>src to dst</b> where src and dst are tower numbers (tower 0 is the left most tower).<br>
+    </div>
 
-Towers:
-<select id="towers">
-<option selected=true>3</option>
-<option>4</option>
-<option>5</option>
-<option>6</option>
-</select>
+    <div id="UI">
 
+      <div id="boxes">
+	Move list:
+	<textarea rows="12" cols="20" id="moves" name="moves"></textarea>
+<br>	One Move:
+	<input type="text rows="1" cols="20"
+	  id="singlemove" name="singlelmove">
+	</input> 
+</div>	
 
-Disks:
-<select id="disks">
-<option>1</option>
-<option>2</option>
-<option selected=true>3</option>
-<option>4</option>
-<option>5</option>
-<option>6</option>
-<option>7</option>
-<option>8</option>
-<select>
-Colors:
-<select id="colors">
-<option selected=true>1</option>
-<option >2</option>
-</select>
+<div id="instructions">
+	Type in moves in the form <b>src to dst</b> where src and
+	dst are tower numbers (tower 0 is the left most tower).<br>
+</div>      
 
-<button id="resettext">Reset Moves</button>
-<button id="resetplay">Reset Towers</button>
-<button id="reinitialize">Re-Initialize</button>
-<button id="play">Play Moves</button>
-<button id="solve">Solve</button>
+      <div id="buttons">
+      Towers:
+      <select id="towers">
+	<option selected=true>3</option>
+	<option>4</option>
+	<option>5</option>
+	<option>6</option>
+      </select>
+      
+      
+      Disks:
+      <select id="disks">
+	<option>1</option>
+	<option>2</option>
+	<option selected=true>3</option>
+	<option>4</option>
+	<option>5</option>
+	<option>6</option>
+	<option>7</option>
+	<option>8</option>
+      </select>
+      Colors:
+	<select id="colors">
+	<option selected=true>1</option>
+	<option >2</option>
+      </select>
+      <br>
+      <button id="resettext">Reset Moves</button>
+      <button id="resetplay">Reset Towers</button>
+      <button id="reinitialize">Re-Initialize</button>
+      <button id="play">Play Moves</button>
+	<button id="solve">Solve</button>
 
-</div>
+      </div>
+      <br>
+	By: <a href="mailto:zamansky@stuycs.org">Mike Zamansky</a><br>
+	  Source code available at: <a href="https://github.com/zamansky/Hanoi">https://github.com/zamansky/Hanoi</a>
+  <br>
+    Also available as a Chrome Application.
+    </div>
 
-</html>
+ </html>
  

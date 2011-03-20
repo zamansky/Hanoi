@@ -9,7 +9,7 @@ var numTowers = 3;
 var numColors = 1;
 var numDisks = 3;
 var canvas; // load the canvas in start (after page is loaded)
-var height = 400;
+var height = 300;
 var width = 800;
 
 /*------------------------- makeTowersandDisks --------------------------*/

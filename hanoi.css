@@ -1,0 +1,18 @@
+
+
+#top {
+    float:top;
+}
+
+#boxes {
+float:left;
+}
+
+#instructions {
+float:bottom;
+}
+
+#buttons {
+ float:bottom;
+
+}
