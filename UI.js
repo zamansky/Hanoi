@@ -143,6 +143,7 @@ function bindButtons() {
     $('#resettext').bind('click',resetEntry);
     $('#resetplay').bind('click',resetTowers);
     $('#reinitialize').bind('click',resetAll);
+    $('#solve').bind('click',solver);
     $('#singlemove').bind('keyup',playSingleMove);
 
     $("#canvas").bind('click',canvasClick);
