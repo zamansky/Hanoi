@@ -54,7 +54,6 @@ function resetEntry () {
  */
 function resetTowers() {
     canvas.getContext("2d").clearRect(0,0,width,height);
-    Towers=false;
     makeTowersandDisks();
     drawTowers();
 
