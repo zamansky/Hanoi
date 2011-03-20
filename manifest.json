@@ -1,0 +1,14 @@
+{
+  "name": "Hanoi",
+  "description": "Tower's of Hanoi demo",
+  "version": "1.0.0",
+  "app": {
+    "launch": {
+      "local_path": "index.html"
+    }
+  },
+  "icons": {
+    "16": "hanoi.png",
+    "128": "hanoi.png"
+  }
+}
