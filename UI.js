@@ -16,7 +16,7 @@ function playSingleMove(e) {
 	text = text+instruction[0]+" to "+instruction[2]+"\n";
 	$("#moves").val(text);
 
-	moveListIntervalID=setInterval(playMoves,1,canvas,Towers);
+	moveListIntervalID=setInterval(playMoves,1,canvas);
 	$("#singlemove").val("")
     }
 }
@@ -37,7 +37,7 @@ function playMovesFromEntry() {
 	var instruction = textArray[l].split(' ');
 	moveList.push(new Move(instruction[0],instruction[2]));
     }
-    moveListIntervalID=setInterval(playMoves,1,canvas,Towers);
+    moveListIntervalID=setInterval(playMoves,1,canvas);
 }
 
 /*------------------------- resetEntry --------------------------*/
@@ -129,7 +129,7 @@ function canvasClick(e) {
 	    $("#moves").val(text);
 	    
 	    firstClick=false;
-	    moveListIntervalID=setInterval(playMoves,1,canvas,Towers);
+	    moveListIntervalID=setInterval(playMoves,1,canvas);
 	    
 	}
     }

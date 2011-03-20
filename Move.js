@@ -53,7 +53,7 @@ function animStep(dx,qx,dy,qy,dr,qr) {
  * runs through moveList makine each move in turn. 
  */
 
-function playMoves(canvas,Towers)
+function playMoves(canvas)
 {
     // If intervalID2 is not null, an animation is currently running
     if (intervalID2)
@@ -69,7 +69,7 @@ function playMoves(canvas,Towers)
     var m = moveList.shift();
     if (!m) // unless the array is empty
 	return;
-    makeMove(canvas,Towers,m.src,m.dst);
+    makeMove(canvas,m.src,m.dst);
 }
 
 /*------------------------- anim --------------------------*/
@@ -79,7 +79,7 @@ function playMoves(canvas,Towers)
  * animSteps - array of animStep instructions
  * d - the disk we are moving
  */
-function anim(canvas,animSteps,Towers,d) {
+function anim(canvas,animSteps,d) {
 
     var gc = canvas.getContext("2d");
 
@@ -127,7 +127,7 @@ function anim(canvas,animSteps,Towers,d) {
 /*
  * Runs through a signle move and animates it
  */
-function makeMove(canvas,Towers,srcIndex,destIndex) {
+function makeMove(canvas,srcIndex,destIndex) {
     var src = Towers[srcIndex];
     var dst = Towers[destIndex];
 
@@ -178,7 +178,7 @@ function makeMove(canvas,Towers,srcIndex,destIndex) {
     // animDone checks to see when we're done so it can
     // add d to the destination tower
     // (the animation doesn't change the towers, it's just for show
-    intervalID = setInterval(anim,1,canvas,animSteps,Towers,d);
+    intervalID = setInterval(anim,1,canvas,animSteps,d);
     intervalID2 = setInterval(animDone,1,dst,d);
     return true;
 }

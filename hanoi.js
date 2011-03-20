@@ -61,33 +61,6 @@ function start() {
 
     bindButtons();
 
-    /*
-     * make an array of moves and run them.
-     * This is for testing purposes only.
-     * remove after ui is done.
-     */
-	/*
-    moveList = new Array();
-    moveList.push(new Move(0,1));
-    moveList.push(new Move(0,2));
-    moveList.push(new Move(1,2));
-    moveList.push(new Move(0,1));
-    moveList.push(new Move(2,0));
-    moveList.push(new Move(2,1));
-    moveList.push(new Move(0,1));
-    
-    moveList.push(new Move(1,0));
-    moveList.push(new Move(1,2));
-    moveList.push(new Move(0,2));
-    moveList.push(new Move(1,0));
-    moveList.push(new Move(2,1));
-    moveList.push(new Move(2,0));
-    moveList.push(new Move(1,0));
-    
-    // play the above move list
-    moveListIntervalID=setInterval(playMoves,1,canvas,Towers);
-
-	 */
 
 }
 
