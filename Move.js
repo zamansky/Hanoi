@@ -79,9 +79,25 @@ function playMoves(canvas)
  * animSteps - array of animStep instructions
  * d - the disk we are moving
  */
-function anim(canvas,animSteps,d) {
+function anim(canvas,animSteps,d,animate) {
 
     var gc = canvas.getContext("2d");
+
+    // no animation -- just move the disk and return
+    if (!animate){
+	gc.clearRect(0,0,800,400);
+	// Draw the towers in the Global Coordinate System
+ 	gc.save();
+	gc.setTransform(1,0,0,1,0,0);
+	for (t in Towers)
+	    Towers[t].draw();
+	gc.restore();
+	clearInterval(intervalID);
+	// reset to the global coordinate system
+	gc.setTransform(1,0,0,1,0,0);
+	intervalID=false;
+	return;
+    }
 
     // No more steps
     if (animSteps.length==0){
@@ -178,8 +194,12 @@ function makeMove(canvas,srcIndex,destIndex) {
     // animDone checks to see when we're done so it can
     // add d to the destination tower
     // (the animation doesn't change the towers, it's just for show
-    intervalID = setInterval(anim,1,canvas,animSteps,d);
-    intervalID2 = setInterval(animDone,1,dst,d);
+    var speed=$("#speed").val()
+    var animate=$("#animate").attr('checked');
+    if (animate)
+	speed=0;
+    intervalID = setInterval(anim,speed,canvas,animSteps,d,animate);
+    intervalID2 = setInterval(animDone,speed,dst,d);
     return true;
 }
 
